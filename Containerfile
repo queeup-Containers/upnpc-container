@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=edge
 
 FROM alpine:${ALPINE_VERSION} as build
-ARG MINIUPNPC_VERSION=2.3.2-r0
+ARG MINIUPNPC_VERSION=2.3.3-r1
 RUN apk add --no-cache miniupnpc=${MINIUPNPC_VERSION}
 
 FROM scratch
