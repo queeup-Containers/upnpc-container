@@ -1,8 +1,8 @@
-ARG ALPINE_VERSION=edge
+ARG ALPINE_CHANNEL
+FROM alpine:${ALPINE_CHANNEL} AS build
 
-FROM alpine:${ALPINE_VERSION} AS build
-ARG MINIUPNPC_VERSION=2.3.3-r1
-RUN apk add --no-cache miniupnpc=${MINIUPNPC_VERSION}
+ARG APP_VERSION
+RUN apk add --no-cache miniupnpc=${APP_VERSION}
 
 FROM scratch
 COPY --from=build /usr/bin/upnpc /bin/
